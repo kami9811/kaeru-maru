@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button id="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>編集ページ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="button-area ion-padding">
+    <label for="file-button" id="file-button-label">日誌の写真を選択</label>
+    <input type="file" accept="image/*" id="file-button" (change)="loadPicture($event)"/>
+  </div>
+  <div *ngIf="imageFlag">
+    <ion-img [src]="image" id="image"></ion-img>
+  </div>
+
+  <!--
+  <ion-card>
+    <ion-card-content>次のオススメの文[1]: RECOMMEND1</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>次のオススメの文[2]: RECOMMEND2</ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>次のオススメの文[3]: RECOMMEND3</ion-card-content>
+  </ion-card>
+  -->
+  <div id="category-center" class="ion-text-center ion-padding-top">
+    投稿日誌のカテゴリを選択してください
+  </div>
+
+  <ion-grid (click)="onGrid($event)">
+    <ion-row>
+      <ion-col>
+        <ion-button id="ccpp" expand="block" [fill]="ccppFill" color="ccpp-three">C/C++</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="python" expand="block" [fill]="pythonFill" color="python-three">Python</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="web" expand="block" [fill]="webFill" color="web-three">Web系</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button id="server" expand="block" [fill]="serverFill" color="server-three">Server</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="native" expand="block" [fill]="nativeFill" color="native-three">ネイティブ</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button id="iot" expand="block" [fill]="iotFill" color="iot-three">IoT</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form (submit)="postArticle()">
+    <ion-item>
+      <ion-label position="floating">タイトル</ion-label>
+      <ion-input required type="text" [(ngModel)]="title" name="title"></ion-input>
+      <ion-label position="floating">本文</ion-label>
+      <ion-textarea [(ngModel)]="text" name="text"></ion-textarea>
+    </ion-item>
+    <!--
+    <div class="button-area">
+      <button type="submit" id="post-article-button">投稿する</button>
+    </div>
+    -->
+    <ion-button id="post-article-button" type="submit" expand="block" color="base-green">投稿する</ion-button>
+  </form>
+</ion-content>

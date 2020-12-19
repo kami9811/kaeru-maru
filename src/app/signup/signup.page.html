@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="main">
+    <ion-buttons slot="start">
+      <ion-back-button id="back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img class="ion-padding logo" src="../../assets/icon/icon.jpeg"></ion-img>
+  <div class="top">新規登録</div>
+  <div>
+  <form class="ion-padding" (submit)="signup()">
+    <ion-item lines="full" class="ion-padding-bottom">
+      <ion-label position="floating">ID</ion-label>
+      <ion-input required type="text" [(ngModel)]="id" name="id"></ion-input>
+      <ion-label position="floating">e-mail</ion-label>
+      <ion-input required type="text" [(ngModel)]="email" name="email"></ion-input>
+      <!--
+      <ion-label>性別</ion-label>
+      <ion-select required [(ngModel)]="gender" name="gender" placeholder="1つ選んでください">
+        <ion-select-option value="0">その他</ion-select-option>
+        <ion-select-option value="1">男</ion-select-option>
+        <ion-select-option value="2">女</ion-select-option>
+      </ion-select> -->
+      <ion-label position="floating">パスワード</ion-label>
+      <ion-input required type="password" [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>
+    <!--
+    <div class="button-area">
+      <button type="submit" id="login-button" class="button-bottom">新規登録する</button>
+    </div>
+    -->
+    <ion-button type="submit" expand="block" fill="outline" color="main">新規登録する</ion-button>
+  </form>
+  </div>
+</ion-content>

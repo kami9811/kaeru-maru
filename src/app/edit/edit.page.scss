@@ -1,0 +1,38 @@
+.button-area{
+}
+
+#file-button-label{
+  text-align: center;
+  font-size: 1.0em;
+  color: #000;
+  background-color: #cbf266;
+  border-radius: 10px;
+  padding: 12px 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+#file-button{
+  display: none;
+}
+
+#image{
+  height: 300px;
+}
+
+#post-article-button{
+  // font-size: 1.0em;
+  // color: #000;
+  // background-color: #cbf266;
+  // border-radius: 10px;
+  // padding: 15px 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+#category-center{
+  font-size: 1.0em;
+  font-weight: bold;
+}

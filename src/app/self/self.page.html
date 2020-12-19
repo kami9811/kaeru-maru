@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button id="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title_id}}さんの投稿日記</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngFor="let a of articleList">
+    <ion-card button="true" color="{{a.category_color}}-{{a.category_level}}">
+      <ion-card-header routerLink="/article/{{tab}}/{{a.article_id}}/{{a.title}}/{{a.text}}/{{a.id}}">
+        <ion-card-subtitle>{{a.id}}さんの投稿<br>{{a.date}}</ion-card-subtitle>
+        <ion-card-title>{{a.title}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-container>
+
+
+</ion-content>

@@ -1,37 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="main">
-    <ion-title><ion-img id="icon" src="../../assets/icon/icon_trans.png"></ion-img></ion-title>
+    <ion-title><ion-img id="icon" src="../../assets/icon/icon_rect.png"></ion-img></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="ion-padding">
-    <ion-img [src]="image_1"></ion-img>
-  </div>
-  <div class="ion-padding">
-    <ion-img [src]="image_2"></ion-img>
-  </div>
-  <div class="ion-padding">
-    <ion-img [src]="image_3"></ion-img>
-  </div>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="information_flag">
-    <ion-fab-button color="positive" (click)="newGood()">
-      <ion-icon name="heart"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="information_flag">
-    <ion-fab-button color="negative" (click)="deleteGood()">
-      <ion-icon name="trash-bin-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="!information_flag">
-    <ion-fab-button color="main" (click)="getUser()">
-      <ion-icon name="reload-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <ion-button class="buttons" id="room-button" Expand="block" fill="solid" color="main"><ion-icon name="add-circle-outline"></ion-icon>マッチングルームを作成</ion-button>
+  <ion-item lines="full" >
+    <ion-label position="floating">参加ルームID</ion-label>
+    <ion-input required type="text" [(ngModel)]="roomID" name="roomID"></ion-input>
+  </ion-item>
+  <ion-button class="buttons" id="join-button" Expand="block" fill="outline" color="main">対象のマッチングに参加</ion-button>
+  <ion-button class="buttons" Expand="block" fill="solid" color="sub"><ion-icon name="help-circle-outline"></ion-icon>ルール説明</ion-button>
 
   <!-- GPS & Alert test -->
   <!--

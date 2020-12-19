@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-room',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./room.page.scss'],
 })
 export class RoomPage implements OnInit {
+  roomId: number;
+  enemy: string = '空席...';
 
-  constructor() { }
+  postObj: any = {};
+  returnObj: any = {};
 
-  ngOnInit() {
+  is_participate: boolean = false;
+  participate_msg: string = '参加待ち...';
+
+  constructor(
+    private router: Router,
+  ) { }
+
+  ngOnInit( ) { }
+
+  moveroom = () => {
+    this.postObj['roomid'] = this.roomId;
+    this.postObj['enemy'] = this.enemy;
+
+    this.router.navigate(['/battle']);
+  }
+
+  cancel = () => {
+    this.router.navigate(['/tabs/tab1']);
   }
 
 }

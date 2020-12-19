@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>room</ion-title>
+  <ion-toolbar color="main">
+    <ion-img id="icon" src="../../assets/logo.png" width></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <form class="ion-padding" (submit)="moveroom()">
+    <ion-label position="floating">ルームID</ion-label>
+    <ion-input required type="text" [(ngModel)]="roomId" name="roomid"></ion-input>
+    <ion-label position="floating">対戦相手</ion-label>
+    <ion-input required type="text" [(ngModel)]="enemy" name="enemy" readonly></ion-input>
+    <ion-button type="submit" expand="block" color="main" fill="outline" [disabled]="is_participate">{{participate_msg}}</ion-button>
+  </form>
+  <form (submit)="cancel()">
+    <ion-button type="submit" expand="block" color="gray">キャンセル</ion-button>
+  </form>
 </ion-content>

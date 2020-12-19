@@ -1,9 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>battle</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="main">
+  <ion-title><ion-img id="icon" src="../../assets/icon/icon_rect.png"></ion-img></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="battle">
+    <ion-text><h4 class="txt-status">あなたのステータス</h4></ion-text>
+    <div class="bg bg-red">
+      <p>移動時間：<span></span></p>
+      <p>直線移動時速：<span></span></p>
+      <p>ゴール<span></span></p>
+      <p>寄り道数：<span></span></p>
+    </div>
+    <ion-text><h4 class="txt-status">相手のステータス</h4></ion-text>
+    <div class="bg bg-mint">
+      <p>移動時間：<span></span></p>
+      <p>直線移動時速：<span></span></p>
+      <p>ゴール<span></span></p>
+      <p>寄り道数：<span></span></p>
+    </div>
+    <ion-button class="ion-text-center" expand="block" color="main" fill="outline"><ion-icon name="camera"></ion-icon>&emsp;寄り道写真を撮影</ion-button>
+    <ul class="extra">
+      <li><ion-icon name="checkmark-circle-outline"></ion-icon>&emsp;マクドナルド</li>
+      <li><ion-icon name="ellipse-outline"></ion-icon>&emsp;スターバックス</li>
+    </ul>
+    <div class="senshin">
+      <ion-text><h4 class="txt-status">センシン君に表示される番号</h4></ion-text>
+      <p>xxxxxx</p>
+    </div>
+    <form (submit)="goal()">
+      <ion-button type="submit" class="ion-text-center" expand="block" color="main"><ion-icon name="home"></ion-icon>&emsp;ゴール！</ion-button>
+    </form>
+  </div>
 </ion-content>

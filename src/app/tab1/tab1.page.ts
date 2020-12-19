@@ -3,6 +3,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { GlobalService } from '../global.service';
+import { ModalController } from '@ionic/angular';
+import { HelpsPage } from '../helps/helps.page';
 
 @Component({
   selector: 'app-tab1',
@@ -30,6 +32,7 @@ export class Tab1Page implements OnInit {
     private alertController: AlertController,
     private router: Router,
     public gs: GlobalService,
+    public modalController: ModalController,
   ) {}
 
   // 自動ログイン管理, 記事取得
@@ -109,5 +112,16 @@ export class Tab1Page implements OnInit {
       },
       error => console.error(error)
     );
+  }
+
+  showHelps = () => {
+    this.presentModal();
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: HelpsPage,
+    });
+    return await modal.present();
   }
 }

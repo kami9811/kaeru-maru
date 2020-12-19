@@ -11,7 +11,7 @@
     <ion-input required type="text" [(ngModel)]="roomID" name="roomID"></ion-input>
   </ion-item>
   <ion-button class="buttons" id="join-button" Expand="block" fill="outline" color="main">対象のマッチングに参加</ion-button>
-  <ion-button class="buttons" Expand="block" fill="solid" color="sub"><ion-icon name="help-circle-outline"></ion-icon>ルール説明</ion-button>
+  <ion-button class="buttons" Expand="block" fill="solid" color="sub" (click)="showHelps()"><ion-icon name="help-circle-outline" ></ion-icon>ルール説明</ion-button>
 
   <!-- GPS & Alert test -->
   <!--

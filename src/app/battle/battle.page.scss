@@ -1,0 +1,36 @@
+#icon{
+  height:100px;
+  width:100px;
+}
+
+.battle {
+  margin: 0 5%;
+  p {
+    line-height: 1;
+    font-size: 0.9em;
+  }
+  .bg {
+    padding: 5px;
+    color: var(--ion-color-main-contrast);
+    font-weight: bold;
+  }
+  .bg-red {
+    background-color: var(--ion-color-main);
+  }
+  .bg-mint {
+    background-color: var(--ion-color-sub);
+    margin-bottom: 40px;
+  }
+  .extra {
+    margin-bottom: 40px;
+    li {
+      list-style: none;
+    }
+  }
+  .senshin {
+    margin-bottom: 40px;
+    p {
+      margin-left: 3%;
+    }
+  }
+}

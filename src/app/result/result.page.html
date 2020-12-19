@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>result</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="main">
+  <ion-title><ion-img id="icon" src="../../assets/icon/icon_rect.png"></ion-img></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="score">
+    <ion-text><h5 class="txt">あなたのステータス</h5></ion-text>
+    <p class="ion-text-center"><span>xxxxx</span>&emsp;点</p>
+  </div>
+  <div class="score">
+    <ion-text><h5 class="txt">相手のステータス</h5></ion-text>
+    <p class="ion-text-center"><span>xxxxx</span>&emsp;点</p>
+  </div>
+  <ion-text><h5 class="ion-text-center lose">Lose...</h5></ion-text>
+  <ion-button class="ion-text-center" expand="block" color="main" fill="outline" disabled>レース未完了</ion-button>
+  <ion-button (click)="backLobby()" class="ion-text-center" expand="block" color="main">ロビーに戻る</ion-button>
 </ion-content>

@@ -16,7 +16,7 @@ export class ResultPage implements OnInit {
   }
 
   backLobby = () => {
-    this.router.navigate(['/tabs/tab1/login']);
+    this.router.navigate(['/tabs/tab1']);
   }
 
 }

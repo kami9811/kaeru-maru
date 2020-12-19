@@ -1,0 +1,25 @@
+#icon{
+  height:100px;
+  width:100px;
+}
+
+.score {
+  margin: 5%;
+  p {
+    color: var(--ion-color-main);
+    font-weight: bold;
+  }
+  .txt {
+    color: var(--ion-color-gray);
+    font-weight: bold;
+  }
+}
+
+.win {
+  color: var(--ion-color-main);
+  margin-bottom: 50px;
+}
+.lose {
+  color: var(--ion-color-sub);
+  margin-bottom: 50px;
+}

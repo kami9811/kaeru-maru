@@ -18,7 +18,7 @@ export class RoomPage implements OnInit {
   returnObj: any = {};
 
   is_participate: boolean = false;
-  participate_msg: string = '参加待ち...';
+  participate_msg: string = '始める';
 
   interval: any;
 

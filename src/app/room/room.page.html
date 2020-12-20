@@ -11,7 +11,7 @@
     <ion-input required type="text" [(ngModel)]="roomId" name="roomid" readonly></ion-input>
     <ion-label position="floating">対戦相手</ion-label>
     <ion-input required type="text" [(ngModel)]="enemy" name="enemy" readonly></ion-input>
-    <ion-button type="submit" expand="block" color="main" [disabled]="is_participate">{{participate_msg}}</ion-button>
+    <ion-button type="submit" expand="block" color="main" fill="outline" [disabled]="is_participate" id="participating" (click)="startbattle()">{{participate_msg}}</ion-button>
   </form>
   <form class="ion-padding" (submit)="cancel()">
     <ion-button type="submit" expand="block" color="gray">キャンセル</ion-button>

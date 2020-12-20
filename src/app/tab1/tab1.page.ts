@@ -6,6 +6,8 @@ import { GlobalService } from '../global.service';
 import { ModalController } from '@ionic/angular';
 import { HelpsPage } from '../helps/helps.page';
 
+import { ValueSharedService } from '../services/value-shared';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -33,6 +35,7 @@ export class Tab1Page implements OnInit {
     private router: Router,
     public gs: GlobalService,
     public modalController: ModalController,
+    private valueSharedService:ValueSharedService
   ) {}
 
   // 自動ログイン管理, 記事取得
@@ -123,5 +126,63 @@ export class Tab1Page implements OnInit {
       component: HelpsPage,
     });
     return await modal.present();
+  }
+
+  matching = (owner:boolean) => {
+    if(owner){
+      this.postObj["id"] = localStorage.id;
+      this.postObj["hash"] = localStorage.hash;
+      //console.log('id',localStorage.id);
+      const body = this.postObj;
+      console.log(body);
+      this.gs.http('https://kn46itblog.com/hackathon/yamaguchi2020/php_apis/match/new/room', body).subscribe(
+        res => {
+          this.returnObj = res;
+          console.log('returnObj',this.returnObj['status']);
+          if(this.returnObj['status'] == 200){
+            this.alertSuccess();
+            this.router.navigate(['/room']);
+            this.valueSharedService.open_id=localStorage.id;
+            //console.log(this.valueSharedService.open_id);
+          }
+          else{
+            this.alertFailer(); 
+          }
+        }
+      )
+    }
+    else{
+      this.geolocation.getCurrentPosition().then((resp) => {
+        this.latitude = resp.coords.latitude;
+        this.longitude = resp.coords.longitude;
+        this.postObj["id"] = localStorage.id;
+        this.postObj["open_id"] = this.roomID;
+        this.postObj["latitude"] = this.latitude;
+        this.postObj["longitude"] = this.longitude;
+        this.postObj["hash"] = localStorage.hash;
+        //console.log('id',localStorage.id);
+        const body = this.postObj;
+        console.log(body);
+        this.gs.http('https://kn46itblog.com/hackathon/yamaguchi2020/php_apis/match/show/room', body).subscribe(
+          res => {
+            this.returnObj = res;
+            console.log(res);
+            // console.log('returnObj',this.returnObj);
+            if(this.returnObj['status'] == 200){
+              this.alertSuccess();
+              this.valueSharedService.open_id=this.roomID;
+              this.valueSharedService.join_id=localStorage.id;
+              console.log(this.valueSharedService.join_id);
+              this.router.navigate(['/room']);
+            }
+            else{
+              this.alertFailer(); 
+            }
+          }
+        )
+      });
+    }   
+    //this.router.navigate(['/room']);
+    //console.log('roomIDinput',this.roomID);
   }
 }

@@ -8,9 +8,9 @@
   <div class="battle">
     <ion-text><h4 class="txt-status">あなたのステータス</h4></ion-text>
     <div class="bg bg-red">
-      <p>移動時間：<span></span></p>
-      <p>直線移動時速：<span></span></p>
-      <p>ゴール<span></span></p>
+      <p>移動時間：<span>{{hour}}:{{minute}}:{{second}}</span></p>
+      <p>直線移動時速：<span>{{distance}}</span></p>
+      <p>ゴール： <span>{{isgoal}}</span></p>
       <p>寄り道数：<span></span></p>
     </div>
     <ion-text><h4 class="txt-status">相手のステータス</h4></ion-text>
@@ -25,12 +25,12 @@
       <li><ion-icon name="checkmark-circle-outline"></ion-icon>&emsp;マクドナルド</li>
       <li><ion-icon name="ellipse-outline"></ion-icon>&emsp;スターバックス</li>
     </ul>
-    <div class="senshin">
-      <ion-text><h4 class="txt-status">センシン君に表示される番号</h4></ion-text>
-      <p>xxxxxx</p>
-    </div>
-    <form (submit)="goal()">
-      <ion-button class="ion-text-center" expand="block" color="main"><ion-icon name="home"></ion-icon>&emsp;ゴール！</ion-button>
+    <form (submit)="isGoal()">
+      <div class="senshin">
+        <ion-text><h4 class="txt-status">センシン君に表示される番号</h4></ion-text>
+        <ion-input type="text" [(ngModel)]="goalcode" name="goalcode"></ion-input>
+      </div>
+      <ion-button type="submit" class="ion-text-center" expand="block" color="main"><ion-icon name="home"></ion-icon>&emsp;ゴール！</ion-button>
     </form>
   </div>
 </ion-content>

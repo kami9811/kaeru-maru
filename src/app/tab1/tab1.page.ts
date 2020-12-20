@@ -19,10 +19,6 @@ export class Tab1Page implements OnInit {
   receive_id: string = '';
   good: number;
 
-  image_1: any = '';
-  image_2: any = '';
-  image_3: any = '';
-
   interval: any;
 
   information_flag: boolean = false;
@@ -43,7 +39,7 @@ export class Tab1Page implements OnInit {
     const body = this.postObj;
     console.log(body);
 
-    this.gs.http('https://kn46itblog.com/biz/oncon10/php_apis/user/edit/login', body).subscribe(
+    this.gs.http('https://kn46itblog.com/hackathon/yamaguchi2020/php_apis/user/edit/login', body).subscribe(
       res => {
         this.returnObj = res;
         if(this.returnObj["status"] == 200){
@@ -77,6 +73,7 @@ export class Tab1Page implements OnInit {
     );
     this.getUser();
   }
+  
   deleteGood = () => {
     if(this.good == 1){
       this.postObj["id"] = localStorage.id;
@@ -88,7 +85,6 @@ export class Tab1Page implements OnInit {
         error => console.error(error)
       );
     }
-    this.getUser();
   }
 
   getUser = () => {
@@ -104,9 +100,6 @@ export class Tab1Page implements OnInit {
         this.returnObj = res;
         if(res["status"] == 200){
           this.receive_id = res["id"];
-          this.image_1 = res["image_1"];
-          this.image_2 = res["image_2"];
-          this.image_3 = res["image_3"];
           this.good = res["good"];
         }
       },

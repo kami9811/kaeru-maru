@@ -8,8 +8,8 @@ import { GlobalService } from '../global.service';
   styleUrls: ['./new-profile.page.scss'],
 })
 export class NewProfilePage implements OnInit {
-  regiId: number;
-  userName: number;
+  deviceId: number;
+  userName: string = '';
 
 
   register_disabled: boolean = false;
@@ -28,26 +28,26 @@ export class NewProfilePage implements OnInit {
   }
 
   postProfile = () => {
-    this.postObj["id"] = this.regiId;
-    this.postObj["username"] = this.userName;
+    this.postObj["id"] = localStorage.id;
+    this.postObj["device_id"] = this.deviceId;
+    this.postObj["name"] = this.userName;
     this.postObj["hash"] = localStorage.hash;
     const body = this.postObj;
 
-    // this.gs.http('https://kn46itblog.com/biz/oncon10/php_apis/user/edit/profile', body).subscribe(
-    //   res => {
-    //     console.log(res);
-    //     // console.log(this.returnObj["status"]);
-    //     if(res["status"] == 200){
-    //       console.log('Successed!');
-    //       this.router.navigate(['/tabs', 'tab1', 'login']);
-    //     }
-    //   },
-    //   error => {
-    //     console.log("error: " + error);
-    //   }
-    // );
+    this.gs.http('https://kn46itblog.com/hackathon/yamaguchi2020/php_apis/user/edit/profile', body).subscribe(
+      res => {
+        console.log(res);
+        // console.log(this.returnObj["status"]);
+        if(res["status"] == 200){
+          console.log('Successed!');
+          this.router.navigate(['/tabs', 'tab1', 'login']);
+        }
+      },
+      error => {
+        console.log("error: " + error);
+      }
+    );
 
-    this.router.navigate(['/tabs', 'tab1', 'login']);
   }
 
 }

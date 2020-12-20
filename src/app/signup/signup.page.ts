@@ -11,8 +11,6 @@ import { GlobalService } from '../global.service';
 export class SignupPage implements OnInit {
   id: string = '';
   email: string;
-  attribute: Number;
-  prefecture: string;
   password: string = '';
 
   postObj: any = {};
@@ -75,11 +73,10 @@ export class SignupPage implements OnInit {
     }
     this.postObj['id'] = this.id;
     this.postObj['email'] = this.email;
-    this.postObj['prefecture'] = this.prefecture;
     this.postObj['password'] = this.password;
     const body = this.postObj;
 
-    this.gs.http('https://kn46itblog.com/biz/oncon10/php_apis/user/new/signup', body).subscribe(
+    this.gs.http('https://kn46itblog.com/hackathon/yamaguchi2020/php_apis/user/new/signup', body).subscribe(
       res => {
         this.returnObj = res;
         if(this.returnObj['status'] == 200){

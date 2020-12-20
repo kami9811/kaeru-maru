@@ -7,6 +7,8 @@ import { GlobalService } from '../global.service';
 import { ModalController } from '@ionic/angular';
 import { HelpsPage } from '../helps/helps.page';
 
+import { ValueSharedService } from '../services/value-shared';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -39,6 +41,7 @@ export class Tab1Page implements OnInit {
     private router: Router,
     public gs: GlobalService,
     public modalController: ModalController,
+    private valueSharedService:ValueSharedService
   ) {}
 
   // 自動ログイン管理, 記事取得
@@ -176,6 +179,8 @@ export class Tab1Page implements OnInit {
           if(this.returnObj['status'] == 200){
             this.alertSuccess();
             this.router.navigate(['/room']);
+            this.valueSharedService.open_id=localStorage.id;
+            //console.log(this.valueSharedService.open_id);
           }
           else{
             this.alertFailer(); 
@@ -202,6 +207,9 @@ export class Tab1Page implements OnInit {
             // console.log('returnObj',this.returnObj);
             if(this.returnObj['status'] == 200){
               this.alertSuccess();
+              this.valueSharedService.open_id=this.roomID;
+              this.valueSharedService.join_id=localStorage.id;
+              console.log(this.valueSharedService.join_id);
               this.router.navigate(['/room']);
             }
             else{

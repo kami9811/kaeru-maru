@@ -36,6 +36,30 @@ export class LoginPage implements OnInit {
 
     this.login();
 
+    /*
+    const body = this.postObj;
+
+    this.gs.http('https://kn46itblog.com/hackathon/CCCu22/php_apis/login.php', body).subscribe(
+      res => {
+        console.log(res);
+        this.returnObj = res;
+        this.status = this.returnObj["status"];
+        // console.log(this.returnObj["status"]);
+        if(this.status == 200){
+          localStorage.id = this.id;
+          localStorage.attribute = this.returnObj["attribute"];
+          localStorage.prefecture = this.returnObj["prefecture"];
+          localStorage.password = this.password;
+          localStorage.hash = this.returnObj["hash"];
+          console.log('Stored item!');
+          this.router.navigate(['/tabs', 'tab1', 'login']);
+        }
+      },
+      error => {
+        console.log("error: " + error);
+      }
+    );*/
+    // this.router.navigate(['/tabs']);
   }
   navigateToSignup = () => {
     this.router.navigate(['/signup']);
@@ -44,16 +68,18 @@ export class LoginPage implements OnInit {
   login = () => {
     const body = this.postObj;
 
-    this.gs.http('https://kn46itblog.com/hackathon/yamaguchi2020/php_apis/user/edit/login', body).subscribe(
+    this.gs.http('https://kn46itblog.com/biz/oncon10/php_apis/user/edit/login', body).subscribe(
       res => {
         console.log(res);
         this.returnObj = res;
         this.status = this.returnObj["status"];
+        // console.log(this.returnObj["status"]);
         if(this.status == 200){
           localStorage.id = this.postObj["id"];
           localStorage.password = this.postObj["password"];
           localStorage.hash = this.returnObj["hash"];
           console.log('Stored item!');
+          // this.returnObj["register_flag"]で分岐
           if(this.returnObj["register_flag"] == 1){
             this.router.navigate(['/tabs', 'tab1', 'login']);
           }

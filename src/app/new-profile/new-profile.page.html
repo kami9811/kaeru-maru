@@ -8,12 +8,11 @@
     <div class="top">センサデバイスの登録IDを入力</div>
     <ion-item lines="full" class="ion-padding-bottom">
       <ion-label position="floating">登録ID</ion-label>
-      <ion-input required type="number" [(ngModel)]="deviceId" name="device_id"></ion-input>
+      <ion-input required type="number" [(ngModel)]="regiId" name="id"></ion-input>
       <div class="top">プロフィールを入力</div>
       <ion-label position="floating">ユーザー名</ion-label>
-      <ion-textarea required [(ngModel)]="userName" name="name"></ion-textarea>
+      <ion-textarea required [(ngModel)]="userName" name="username"></ion-textarea>
     </ion-item>
     <ion-button type="submit" expand="block" [fill]="register_outline" color="main" [disabled]="register_disabled">{{register_button}}</ion-button>
   </form>
 </ion-content>
-

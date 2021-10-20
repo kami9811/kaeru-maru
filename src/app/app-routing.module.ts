@@ -61,7 +61,7 @@ const routes: Routes = [
     loadChildren: () => import('./battle/battle.module').then( m => m.BattlePageModule)
   },
   {
-    path: 'result',
+    path: 'result/:score',
     loadChildren: () => import('./result/result.module').then( m => m.ResultPageModule)
   },
   {

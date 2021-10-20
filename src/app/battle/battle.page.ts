@@ -48,7 +48,7 @@ export class BattlePage implements OnInit {
 
   postObj: any = {};
   returnObj: any = {};
-  
+
   ngOnInit() {
     this.postObj["id"] = localStorage.id;
     this.postObj["password"] = localStorage.password;
@@ -83,7 +83,7 @@ export class BattlePage implements OnInit {
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
-    
+
     this.camera.getPicture(options).then((imageData) => {
      // imageData is either a base64 encoded string or a file URI
      // If it's base64 (DATA_URL):
@@ -171,7 +171,7 @@ export class BattlePage implements OnInit {
             // this.distance_score = res["distance_score"];
             // this.spot_score = res["spot_score"];
             // this.score = res["score"];
-            this.router.navigate(['/result']);
+            this.router.navigate(['/result', res["score"]]);
           }
         }
       },
